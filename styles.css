@@ -24,6 +24,10 @@
   background-color: var(--primary-background-color);
 }
 
+.background-primary {
+  background-color: var(--primary-color);
+}
+
 .list-unstyled {
   padding-left: 0;
   list-style: none;
@@ -196,6 +200,12 @@
 }
 .product-grid:hover .add-to-cart {
   bottom: 0;
+}
+.show-add-to-cart {
+  bottom: 0 !important;
+}
+.image-in-list {
+  height: 360px !important;
 }
 .product-grid .add-to-cart:hover {
   text-shadow: 4px 4px rgba(0, 0, 0, 0.2);

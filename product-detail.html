@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Book-shop</title>
+    <link rel="stylesheet" href="styles.css" type="text/css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous" />
+    <link rel="stylesheet" type="text/css"
+        href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.5.9/slick.min.css" />
+    <link rel="stylesheet" type="text/css"
+        href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.5.9/slick-theme.min.css" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+</head>
+
+<body class="overflow-x-hidden background-gray">
+    <!-- Main content  -->
+    <!-- <div data-include="header"></div> -->
+    <header class="d-flex flex-wrap justify-content-center py-3 border-bottom px-5 background-white">
+        <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto">
+            <div class="rounded-circle d-flex justify-content-center align-items-center home-button smooth-transform"
+                style="width: 40px; height: 40px">
+                <i class="fa fa-home"></i>
+            </div>
+        </a>
+
+        <div class="d-flex align-items-center gap-3">
+            <!-- If DO NOT login, show this      -->
+            <button type="button" class="btn btn-outline-none" data-bs-toggle="modal" data-bs-target="#loginModal">
+                <i class="fa-solid fa-lock primary-color me-1"></i>
+                Log in
+            </button>
+
+            <button type="button" class="btn btn-outline-none" data-bs-toggle="modal" data-bs-target="#registerModal">
+                <i class="fa-solid fa-user-plus primary-color me-1"></i>
+                Register
+            </button>
+            <!-- If login, show this -->
+            <div class="dropdown">
+                <a href="#" class="d-flex align-items-center link-dark text-decoration-none dropdown-toggle"
+                    id="dropdownUser2" data-bs-toggle="dropdown" aria-expanded="false">
+                    <i class="fa-solid fa-user me-2 primary-color"></i>
+                    Hello: <strong>Elizabeth</strong>
+                </a>
+                <ul class="dropdown-menu text-small shadow" aria-labelledby="dropdownUser2">
+                    <li><a class="dropdown-item" href="#">Sign out</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="loginModalLabel">Log in</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <h6>User email <span class="text-danger">*</span></h6>
+                        <input type="text" class="form-control mb-3" placeholder="Enter user email"
+                            aria-label="Useremail" />
+                        <h6>Password <span class="text-danger">*</span></h6>
+                        <input type="password" class="form-control mb-2" placeholder="Enter password"
+                            aria-label="Password" />
+                        <button type="button" class="btn btn-primary w-100 mb-2">
+                            Log in
+                        </button>
+                        <div class="mb-3 d-flex justify-content-end">
+                            <a class="text-decoration-none forget-pass-btn btn text-primary" data-bs-toggle="modal"
+                                data-bs-target="#forgetPasswordModal">
+                                Reset password?
+                            </a>
+                        </div>
+                        <div class="d-flex justify-content-center align-items-center">
+                            <p class="mb-0">Need an account?</p>
+                            <a class="btn btn-outline-none text-decoration-underline" data-bs-toggle="modal"
+                                data-bs-target="#registerModal">
+                                SIGN UP
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="registerModal" tabindex="-1" aria-labelledby="registerModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="registerModalLabel">Sign up</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body" style="max-height: 450px; overflow: auto">
+                        <h6>Email <span class="text-danger">*</span></h6>
+                        <input type="text" class="form-control mb-3" placeholder="Enter email" />
+                        <h6>Password <span class="text-danger">*</span></h6>
+                        <input type="password" class="form-control mb-2" placeholder="Enter password" />
+                        <h6>Full name <span class="text-danger">*</span></h6>
+                        <input type="text" class="form-control mb-3" placeholder="Enter full name" />
+                        <h6>Gender <span class="text-danger">*</span></h6>
+                        <div class="d-flex gap-5 mb-3 align-items-center">
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1"
+                                    value="option1" checked />
+                                <label class="form-check-label" for="exampleRadios1">
+                                    Male
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2"
+                                    value="option2" />
+                                <label class="form-check-label" for="exampleRadios2">
+                                    Female
+                                </label>
+                            </div>
+                        </div>
+                        <h6>Email <span class="text-danger">*</span></h6>
+                        <input type="text" class="form-control mb-3" placeholder="Enter user email" />
+                        <h6>Mobile <span class="text-danger">*</span></h6>
+                        <input type="number" class="form-control mb-3" placeholder="Enter mobile" />
+                        <h6>Address <span class="text-danger">*</span></h6>
+                        <input type="text" class="form-control mb-3" placeholder="Enter your address" />
+                        <button type="button" class="btn btn-primary w-100 mb-2">
+                            Log in
+                        </button>
+                        <div class="d-flex justify-content-center align-items-center">
+                            <p class="mb-0">Already have an account</p>
+                            <a class="btn btn-outline-none text-decoration-underline" data-bs-toggle="modal"
+                                data-bs-target="#loginModal">
+                                SIGN IN
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="forgetPasswordModal" tabindex="-1" aria-labelledby="forgetPasswordModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body d-flex flex-column align-items-center gap-3 p-5">
+                        <img src="/assets/reset-pass-img.png" alt="reset-pass-img"
+                            style="max-width: 80px; object-fit: cover" />
+                        <h2>Reset Password</h2>
+                        <input type="text" class="form-control mb-3" placeholder="Enter user email"
+                            aria-label="Useremail" />
+                        <button type="button" class="btn btn-primary w-100 mb-2">
+                            RESET PASSWORD
+                        </button>
+                        <div class="d-flex justify-content-center align-items-center">
+                            <p class="mb-0">Already have an account</p>
+                            <a class="btn btn-outline-none text-decoration-underline" data-bs-toggle="modal"
+                                data-bs-target="#loginModal">
+                                SIGN IN
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- don't show in profile tab  -->
+    <!-- <div data-include="shop-header"></div> -->
+    <header class="px-5 py-3 border-bottom background-white">
+        <div class="row align-items-center">
+            <div class="col-sm-12 col-md-4 col-lg-3 mobile-center">
+                <!-- LOGO -->
+                <div id="logo">
+                    <a href="/" class="href-unstyled">
+                        <b class="hover-color-primary">BOOKS</b>
+                        <div>Online store</div>
+                    </a>
+                </div>
+            </div>
+
+            <div class="col-sm-6 col-md-4 col-lg-6 mobile-center">
+                <!-- HEADER SEARCH -->
+                <form action="/search" method="get" class="input-group">
+                    <div class="form-floating">
+                        <input type="email" class="form-control" id="floatingInput" placeholder="Search" />
+                        <label for="floatingInput">Search</label>
+                    </div>
+                    <button id="search-button" type="button" class="btn btn-primary">
+                        SEARCH
+                    </button>
+                </form>
+            </div>
+
+            <div class="col-sm-6 col-md-4 col-lg-3 header_cart_wrapper">
+                <!-- HEADER CART -->
+                <a class="d-flex align-items-center gap-3 href-unstyled hover-color-primary" href="/cart"><i
+                        class="fa fa-xl fa-shopping-cart"></i>
+                    <div>
+                        <div style="font-size: 18px; font-weight: 700">
+                            Shopping cart:
+                            <span style="font-size: 20; color: #fc5c3c" class="count">0</span>
+                        </div>
+                        <div style="color: #fc5c3c">Checkout</div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- <div data-include="shop-navigation"></div> -->
+    <section class="sticky-top">
+        <nav class="px-5 border-start border-end border-bottom background-white">
+            <div class="border-start border-end py-3 px-3">
+                <ul class="nav col-12 col-md-auto">
+                    <!-- ACTIVE TAB WILL USING primary-color css, other using link-dark  -->
+                    <li>
+                        <a href="#" class="nav-link px-3 primary-color fs-5">HOME</a>
+                    </li>
+                    <li>
+                        <a href="#" class="nav-link px-3 link-dark fs-5">PRODUCTS</a>
+                    </li>
+                    <li><a href="#" class="nav-link px-3 link-dark fs-5">BLOG</a></li>
+                    <li><a href="#" class="nav-link px-3 link-dark fs-5">SALE</a></li>
+                    <li>
+                        <a href="#" class="nav-link px-3 link-dark fs-5">CONTACT US</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </section>
+
+    <!-- only show when in subpage, don't show in home page -->
+    <!-- active page will have primary-color css  -->
+    <div class="mt-3 mx-5 py-3 px-2 bg-white rounded-1 shadow-sm">
+        Home / <span class="primary-color"> Products </span>
+    </div>
+
+    <div class="row px-5 mt-4">
+        <!-- book left side bar, different from profile side bar  -->
+        <!-- <div data-include="left-side-bar"></div> -->
+        <div class="col-3">
+            <div class="fs-4">COLLECTIONS</div>
+            <ul class="list-group mt-2">
+                <li class="list-group-item">
+                    <a class="href-unstyled hover-color-primary" href="/collections/antiques"
+                        title="Antiques">Antiques</a>
+                </li>
+                <li class="list-group-item">
+                    <a class="href-unstyled hover-color-primary" href="/collections/blanks" title="Blanks">Blanks</a>
+                </li>
+            </ul>
+            <div class="fs-4 mt-4">BLOGS</div>
+            <ul class="list-group mt-2">
+                <li class="list-group-item">
+                    <a class="href-unstyled hover-color-primary" href="/collections/antiques"
+                        title="Antiques">Antiques</a>
+                </li>
+                <li class="list-group-item">
+                    <a class="href-unstyled hover-color-primary" href="/collections/blanks" title="Blanks">Blanks</a>
+                </li>
+            </ul>
+            <div class="fs-4 mt-4">BEST SELLERS</div>
+            <ul class="list-group mt-2">
+                <li class="list-group-item">
+                    <div class="d-flex gap-2">
+                        <img src="https://theme133-books.myshopify.com/cdn/shop/products/american_gods_by_neil_gaiman_1_medium.png?v=1422032887"
+                            alt="book-img" style="height: 150px;width: 110px; object-fit: cover;">
+                        <div class="flex flex-column gap-3">
+                            <div class="fs-5 fw-medium">
+                                American gods
+                            </div>
+                            <div class="fs-5 fw-light primary-color">$53.55 <span
+                                    class="text-decoration-line-through fs-6 fw-light text-black">$68.88</span>
+                            </div>
+                            <button class="btn btn-primary mt-2 buy-hover-effect">
+                                <i class="fa fa-shopping-cart"></i>
+                            </button>
+                        </div>
+                    </div>
+                </li>
+                <li class="list-group-item">
+                    <div class="d-flex gap-2">
+                        <img src="https://theme133-books.myshopify.com/cdn/shop/products/amusing_ourselves_to_death_public_discourse_in_the_age_of_show_business_by_neil_postman_1_medium.png?v=1422032897"
+                            alt="book-img" style="height: 150px;width: 110px; object-fit: cover;">
+                        <div class="flex flex-column gap-3">
+                            <div class="fs-5 fw-medium">
+                                Amusing
+                            </div>
+                            <div class="fs-5 fw-light primary-color">$53.55 <span
+                                    class="text-decoration-line-through fs-6 fw-light text-black">$68.88</span>
+                            </div>
+                            <button class="btn btn-primary mt-2 buy-hover-effect">
+                                <i class="fa fa-shopping-cart"></i>
+                            </button>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="col-9 d-flex flex-column gap-5 mb-5">
+            <!-- PRODUCT DETAIL -->
+            <section>
+                <div class="row">
+                    <div class="col-md-4 col-12">
+                        <div class="slider slider-show-image">
+                            <!-- list all image you have here -->
+                            <img style="width: 100%; height: 450px; object-fit: cover; border-radius: 8px;"
+                                src="https://theme133-books.myshopify.com/cdn/shop/products/american_gods_by_neil_gaiman_1_medium.png?v=1422032887"
+                                alt="book-shop">
+                            <img style="width: 100%; height: 450px; object-fit: cover; border-radius: 8px;"
+                                src="https://theme133-books.myshopify.com/cdn/shop/products/amusing_ourselves_to_death_public_discourse_in_the_age_of_show_business_by_neil_postman_1_medium.png?v=1422032897"
+                                alt="book-shop">
+                            <img style="width: 100%; height: 150px; object-fit: cover; border-radius: 8px;"
+                                src="https://theme133-books.myshopify.com/cdn/shop/products/american_gods_by_neil_gaiman_1_medium.png?v=1422032887"
+                                alt="book-shop">
+                            <img style="width: 100%; height: 450px; object-fit: cover; border-radius: 8px;"
+                                src="https://theme133-books.myshopify.com/cdn/shop/products/amusing_ourselves_to_death_public_discourse_in_the_age_of_show_business_by_neil_postman_1_medium.png?v=1422032897"
+                                alt="book-shop">
+
+                        </div>
+                        <div class="slider slider-list-image">
+                            <!-- list all image you have here -->
+                            <img style="width: 100%; height: 150px; object-fit: cover; border-radius: 8px;"
+                                src="https://theme133-books.myshopify.com/cdn/shop/products/american_gods_by_neil_gaiman_1_medium.png?v=1422032887"
+                                alt="book-shop">
+                            <img style="width: 100%; height: 150px; object-fit: cover; border-radius: 8px;"
+                                src="https://theme133-books.myshopify.com/cdn/shop/products/amusing_ourselves_to_death_public_discourse_in_the_age_of_show_business_by_neil_postman_1_medium.png?v=1422032897"
+                                alt="book-shop">
+                            <img style="width: 100%; height: 150px; object-fit: cover; border-radius: 8px;"
+                                src="https://theme133-books.myshopify.com/cdn/shop/products/american_gods_by_neil_gaiman_1_medium.png?v=1422032887"
+                                alt="book-shop">
+                            <img style="width: 100%; height: 150px; object-fit: cover; border-radius: 8px;"
+                                src="https://theme133-books.myshopify.com/cdn/shop/products/amusing_ourselves_to_death_public_discourse_in_the_age_of_show_business_by_neil_postman_1_medium.png?v=1422032897"
+                                alt="book-shop">
+                        </div>
+                    </div>
+                    <div class="col-md-8 col-12">
+                        <div style="font-size: 18px; color: #333; margin-bottom: 10px; font-weight: bold;">
+                            Category
+                        </div>
+                        <h3 style="font-weight: 400; margin-bottom: 14px;">Name of book</h3>
+                        <p style="color: #c83252; font-weight: 700; font-size: 26px; margin-bottom: 14px;">90.000 đ
+                            <span class="text-decoration-line-through fs-6 text-black fw-light">
+                                100.000đ
+                            </span>
+                        </p>
+                        <div style="height: 1px; width: 100%; background-color: #33333330;"></div>
+                        <div class="mt-3 mb-4">
+                            <div class="row">
+                                <div class="col-6">
+                                    <p class="mb-0"><span style="font-weight: bold;">Type:</span> ABCD tyoe</p>
+                                </div>
+                                <div class="col-6">
+                                    <p class="mb-0"><span style="font-weight: bold;">Publisher:</span> Kim đồng</p>
+                                </div>
+                            </div>
+                            <p class="mb-0 mt-1"><span style="font-weight: bold;">Description:</span> Show desciption
+                                here
+                            </p>
+                        </div>
+                        <div style="height: 1px; width: 100%; background-color: #33333330;"></div>
+                        <div class="row" style="padding-top: 12px; padding-bottom: 12px;">
+                            <div class="col-6">
+                                <div class="d-flex gap-2 align-items-center">
+                                    <i class="fa-solid fa-box-open"></i>
+                                    <p class="mb-0">Free shipping</p>
+                                </div>
+                                <div class="d-flex gap-2 align-items-center mt-2">
+                                    <i class="fa-solid fa-right-left"></i>
+                                    <p class="mb-0">Free return</p>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="d-flex gap-2 align-items-center">
+                                    <i class="fa-solid fa-sack-dollar"></i>
+                                    <p class="mb-0">Ship COD</p>
+                                </div>
+                                <div class="d-flex gap-2 align-items-center mt-2">
+                                    <i class="fa-solid fa-truck-fast"></i>
+                                    <p class="mb-0">Nationwide Delivery</p>
+                                </div>
+                            </div>
+                        </div>
+                        <hr>
+                        <!-- if else to show each case, if have product, show below. If out of stock, show sold out -->
+                        <div class="mt-3 d-flex flex-column flex-md-row gap-3 align-items-md-center" id="show_buy">
+                            <div class="d-flex gap-3 align-items-center">
+                                <input type="number" class="input_cart_width" name="qty" value="1">
+                                <button class="btn btn-outline-secondary btn-lg custom_btn_add">Add to cart</button>
+                            </div>
+                            <button class="btn btn-primary btn-lg custom_btn_buynow">Buy now</button>
+                        </div>
+                        <div class="mt-3" id="show_out">
+                            <button class="btn btn-outline-danger btn-lg" style="cursor: not-allowed;">Out of
+                                stock</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- OTHER FINE PRODUCTS -->
+            <seciton>
+                <div class="fs-4 fw-light my-3">OTHER FINE PRODUCTS</div>
+                <div class="row">
+                    <div class="col-3 d-grid">
+                        <div class="shadow bg-white px-1">
+                            <div class="p-3">
+                                <img src="https://theme133-books.myshopify.com/cdn/shop/products/amusing_ourselves_to_death_public_discourse_in_the_age_of_show_business_by_neil_postman_1_medium.png?v=1422032897"
+                                    alt="book-img" style="height: 250px; width: 100%; object-fit: cover;">
+                                <div class="truncate-2-line fs-6 fw-bold mt-2">
+                                    AMusing ourselves to dlala AMusing ourselves to dlala AMusing ourselves to dlala
+                                </div>
+                            </div>
+                            <hr class="mt-0 mb-0">
+                            <div class="p-2 fs-4 fw-bold">
+                                20000d
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-3 d-grid">
+                        <div class="shadow bg-white px-1">
+                            <div class="p-3">
+                                <img src="https://theme133-books.myshopify.com/cdn/shop/products/amusing_ourselves_to_death_public_discourse_in_the_age_of_show_business_by_neil_postman_1_medium.png?v=1422032897"
+                                    alt="book-img" style="height: 250px; width: 100%; object-fit: cover;">
+                                <div class="truncate-2-line fs-6 fw-bold mt-2">
+                                    AMusing ourselves to dlala AMusing ourselves to dlala AMusing ourselves to dlala
+                                </div>
+                            </div>
+                            <hr class="mt-0 mb-0">
+                            <div class="p-2 fs-4 fw-bold">
+                                20000d
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-3 d-grid">
+                        <div class="shadow bg-white px-1">
+                            <div class="p-3">
+                                <img src="https://theme133-books.myshopify.com/cdn/shop/products/amusing_ourselves_to_death_public_discourse_in_the_age_of_show_business_by_neil_postman_1_medium.png?v=1422032897"
+                                    alt="book-img" style="height: 250px; width: 100%; object-fit: cover;">
+                                <div class="truncate-2-line fs-6 fw-bold mt-2">
+                                    AMusing ourselves to dlala AMusing ourselves to dlala AMusing ourselves to dlala
+                                </div>
+                            </div>
+                            <hr class="mt-0 mb-0">
+                            <div class="p-2 fs-4 fw-bold">
+                                20000d
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-3 d-grid">
+                        <div class="shadow bg-white px-1">
+                            <div class="p-3">
+                                <img src="https://theme133-books.myshopify.com/cdn/shop/products/amusing_ourselves_to_death_public_discourse_in_the_age_of_show_business_by_neil_postman_1_medium.png?v=1422032897"
+                                    alt="book-img" style="height: 250px; width: 100%; object-fit: cover;">
+                                <div class="truncate-2-line fs-6 fw-bold mt-2">
+                                    AMusing ourselves to dlala AMusing ourselves to dlala AMusing ourselves to dlala
+                                </div>
+                            </div>
+                            <hr class="mt-0 mb-0">
+                            <div class="p-2 fs-4 fw-bold">
+                                20000d
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </seciton>
+        </div>
+    </div>
+    <div data-include="footer"></div>
+    <!-- Script using  -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+        crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/8d39de38b8.js" crossorigin="anonymous"></script>
+    <script>
+        $('.slider-show-image').slick({
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            arrows: false,
+            fade: true,
+            asNavFor: '.slider-list-image'
+        });
+        $('.slider-list-image').slick({
+            slidesToShow: 3,
+            slidesToScroll: 1,
+            asNavFor: '.slider-show-image',
+            focusOnSelect: true
+        });
+    </script>
+</body>
+
+</html>
