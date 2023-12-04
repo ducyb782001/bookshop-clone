@@ -242,3 +242,33 @@
   transition: all 0.2s ease;
   border: 1px solid black !important;
 }
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: block;
+  position: absolute;
+  background-color: red;
+  z-index: 1;
+  bottom: -40px;
+  left: 0;
+  right: 0;
+}
+.dropdown:hover .dropdown-content {
+  display: block;
+  animation: fadeIn 0.2s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
