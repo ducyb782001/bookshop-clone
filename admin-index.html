@@ -164,47 +164,46 @@
                 </div>
             </div>
             <div class="mt-3 container bg-white border rounded-1">
-                <table class="table overflow-auto mt-3">
+                <table class="table mt-3">
                     <thead>
                         <tr style="background-color: #00000010;">
-                            <td>No</td>
-                            <td>Product</td>
-                            <td>Category</td>
-                            <td>List Price</td>
-                            <td>Sale Price</td>
-                            <td>Status</td>
-                            <td style="width: 280px;">Action</td>
+                            <th scope="col">No</th>
+                            <th scope="col">Product</th>
+                            <th scope="col">Category</th>
+                            <th scope="col">List Price</th>
+                            <th scope="col">Sale Price</th>
+                            <th scope="col">Status</th>
+                            <th scope="col" style="width: 280px;">Action</th>
                         </tr>
                     </thead>
                     <tbody>
+                        <!-- item 1 -->
                         <tr>
-                            <td style="height: 78px;">
-                                <div class="d-flex align-items-center">
-                                    1
-                                </div>
-                            </td>
-                            <td style="width: 25%;">
+                            <th class="d-flex align-items-center" style="height: 78px;" scope="row">1</th>
+                            <td style="width: 25%; height: 78px;">
                                 <div class="d-flex gap-2 align-items-center">
-                                    <img src="https://m.media-amazon.com/images/I/71PY2Jhqo2L._AC_UX695_.jpg"
+                                    <img src="https://inoxthaian.vn/wp-content/uploads/2021/02/hinh-anh-chim-chao-mao-trong-tu-nhien.jpg"
                                         class="rounded-2" style="width: 60px; height: 60px; object-fit: contain;" />
-                                    <h6>Nice Book</h6>
+                                    <h6 class="truncate-2-line">Nice Book 123 ád 123 ads à</h6>
                                 </div>
                             </td>
-                            <td>
-                                Book
+                            <td style="height: 78px;">
+                                <div class="d-flex align-items-center h-100">
+                                    Book
+                                </div>
                             </td>
-                            <td>
-                                <div>
+                            <td style="height: 78px;">
+                                <div class="d-flex align-items-center h-100">
                                     20000đ
                                 </div>
                             </td>
-                            <td>
-                                <div>
-                                    18000đ
+                            <td style="height: 78px;">
+                                <div class="d-flex align-items-center h-100">
+                                    10000đ
                                 </div>
                             </td>
-                            <td>
-                                <div>
+                            <td style="height: 78px;">
+                                <div class="d-flex align-items-center h-100">
                                     Active
                                 </div>
                             </td>
@@ -251,81 +250,7 @@
                                 </div>
                             </td>
                         </tr>
-                        <!-- item 2 -->
-                        <tr>
-                            <td style="height: 78px;">
-                                <div class="d-flex align-items-center">
-                                    1
-                                </div>
-                            </td>
-                            <td style="width: 25%;">
-                                <div class="d-flex gap-2 align-items-center">
-                                    <img src="https://m.media-amazon.com/images/I/71PY2Jhqo2L._AC_UX695_.jpg"
-                                        class="rounded-2" style="width: 60px; height: 60px; object-fit: contain;" />
-                                    <h6>Nice Book</h6>
-                                </div>
-                            </td>
-                            <td>
-                                Book
-                            </td>
-                            <td>
-                                <div>
-                                    20000đ
-                                </div>
-                            </td>
-                            <td>
-                                <div>
-                                    18000đ
-                                </div>
-                            </td>
-                            <td>
-                                <div>
-                                    Active
-                                </div>
-                            </td>
-                            <td class="d-flex gap-2 align-items-center" style="width: 280px; height: 78px;">
-                                <button type="button" class="btn btn-outline-secondary me-2" data-bs-toggle="modal"
-                                    data-bs-target="#updateItem">
-                                    <i class="fa-solid fa-pen-to-square"></i>
-                                    Update</button>
-
-                                <button type="button" class="btn btn-danger me-2" data-bs-toggle="modal"
-                                    data-bs-target="#deleteItem">
-                                    <i class="fa-solid fa-trash"></i>
-                                    Remove</button>
-                                <!-- Modal Delete Detail-->
-                                <div class="modal fade" id="deleteItem" tabindex="-1"
-                                    aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                    <div class="modal-dialog modal-dialog-centered">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h5 class="modal-title" id="exampleModalLabel">Are you sure to delete
-                                                    this product
-                                                </h5>
-                                                <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                    aria-label="Close"></button>
-                                            </div>
-
-                                            <div class="modal-body">
-                                                Nice shoe - 20000d
-                                            </div>
-                                            <form action="/Product/Delete" method="post">
-                                                <input type="hidden" class="form-control" id="id" name="id"
-                                                    value="@item.id_book">
-                                                <div class="modal-footer">
-                                                    <button style="width:100px" type="button" class="btn btn-secondary"
-                                                        data-bs-dismiss="modal">
-                                                        Close
-                                                    </button>
-                                                    <button style="width:100px" type="submit" class="btn btn-danger">
-                                                        Delete</button>
-                                                </div>
-                                            </form>
-                                        </div>
-                                    </div>
-                                </div>
-                            </td>
-                        </tr>
+                        <!-- item 2 ... -->
                     </tbody>
                 </table>
             </div>
