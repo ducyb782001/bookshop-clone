@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Book-shop</title>
+    <link rel="stylesheet" href="styles.css" type="text/css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous" />
+    <link rel="stylesheet" type="text/css"
+        href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.5.9/slick.min.css" />
+    <link rel="stylesheet" type="text/css"
+        href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.5.9/slick-theme.min.css" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+</head>
+
+<body class="overflow-x-hidden background-gray">
+    <!-- Main content  -->
+    <!-- <div data-include="header"></div> -->
+    <header class="d-flex flex-wrap justify-content-center py-3 border-bottom px-5 background-white">
+        <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto">
+            <div class="rounded-circle d-flex justify-content-center align-items-center home-button smooth-transform"
+                style="width: 40px; height: 40px">
+                <i class="fa fa-home"></i>
+            </div>
+        </a>
+
+        <div class="d-flex align-items-center gap-3">
+            <!-- If DO NOT login, show this      -->
+            <button type="button" class="btn btn-outline-none" data-bs-toggle="modal" data-bs-target="#loginModal">
+                <i class="fa-solid fa-lock primary-color me-1"></i>
+                Log in
+            </button>
+
+            <button type="button" class="btn btn-outline-none" data-bs-toggle="modal" data-bs-target="#registerModal">
+                <i class="fa-solid fa-user-plus primary-color me-1"></i>
+                Register
+            </button>
+            <!-- If login, show this -->
+            <div class="dropdown">
+                <a href="#" class="d-flex align-items-center link-dark text-decoration-none dropdown-toggle"
+                    id="dropdownUser2" data-bs-toggle="dropdown" aria-expanded="false">
+                    <i class="fa-solid fa-user me-2 primary-color"></i>
+                    Hello: <strong>Elizabeth</strong>
+                </a>
+                <ul class="dropdown-menu text-small shadow" aria-labelledby="dropdownUser2">
+                    <li><a class="dropdown-item" href="#">Sign out</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="loginModalLabel">Log in</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <h6>User email <span class="text-danger">*</span></h6>
+                        <input type="text" class="form-control mb-3" placeholder="Enter user email"
+                            aria-label="Useremail" />
+                        <h6>Password <span class="text-danger">*</span></h6>
+                        <input type="password" class="form-control mb-2" placeholder="Enter password"
+                            aria-label="Password" />
+                        <button type="button" class="btn btn-primary w-100 mb-2">
+                            Log in
+                        </button>
+                        <div class="mb-3 d-flex justify-content-end">
+                            <a class="text-decoration-none forget-pass-btn btn text-primary" data-bs-toggle="modal"
+                                data-bs-target="#forgetPasswordModal">
+                                Reset password?
+                            </a>
+                        </div>
+                        <div class="d-flex justify-content-center align-items-center">
+                            <p class="mb-0">Need an account?</p>
+                            <a class="btn btn-outline-none text-decoration-underline" data-bs-toggle="modal"
+                                data-bs-target="#registerModal">
+                                SIGN UP
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="registerModal" tabindex="-1" aria-labelledby="registerModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="registerModalLabel">Sign up</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body" style="max-height: 450px; overflow: auto">
+                        <h6>Email <span class="text-danger">*</span></h6>
+                        <input type="text" class="form-control mb-3" placeholder="Enter email" />
+                        <h6>Password <span class="text-danger">*</span></h6>
+                        <input type="password" class="form-control mb-2" placeholder="Enter password" />
+                        <h6>Full name <span class="text-danger">*</span></h6>
+                        <input type="text" class="form-control mb-3" placeholder="Enter full name" />
+                        <h6>Gender <span class="text-danger">*</span></h6>
+                        <div class="d-flex gap-5 mb-3 align-items-center">
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1"
+                                    value="option1" checked />
+                                <label class="form-check-label" for="exampleRadios1">
+                                    Male
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2"
+                                    value="option2" />
+                                <label class="form-check-label" for="exampleRadios2">
+                                    Female
+                                </label>
+                            </div>
+                        </div>
+                        <h6>Email <span class="text-danger">*</span></h6>
+                        <input type="text" class="form-control mb-3" placeholder="Enter user email" />
+                        <h6>Mobile <span class="text-danger">*</span></h6>
+                        <input type="number" class="form-control mb-3" placeholder="Enter mobile" />
+                        <h6>Address <span class="text-danger">*</span></h6>
+                        <input type="text" class="form-control mb-3" placeholder="Enter your address" />
+                        <button type="button" class="btn btn-primary w-100 mb-2">
+                            Log in
+                        </button>
+                        <div class="d-flex justify-content-center align-items-center">
+                            <p class="mb-0">Already have an account</p>
+                            <a class="btn btn-outline-none text-decoration-underline" data-bs-toggle="modal"
+                                data-bs-target="#loginModal">
+                                SIGN IN
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="forgetPasswordModal" tabindex="-1" aria-labelledby="forgetPasswordModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body d-flex flex-column align-items-center gap-3 p-5">
+                        <img src="/assets/reset-pass-img.png" alt="reset-pass-img"
+                            style="max-width: 80px; object-fit: cover" />
+                        <h2>Reset Password</h2>
+                        <input type="text" class="form-control mb-3" placeholder="Enter user email"
+                            aria-label="Useremail" />
+                        <button type="button" class="btn btn-primary w-100 mb-2">
+                            RESET PASSWORD
+                        </button>
+                        <div class="d-flex justify-content-center align-items-center">
+                            <p class="mb-0">Already have an account</p>
+                            <a class="btn btn-outline-none text-decoration-underline" data-bs-toggle="modal"
+                                data-bs-target="#loginModal">
+                                SIGN IN
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- don't show in profile tab  -->
+    <!-- <div data-include="shop-header"></div> -->
+    <header class="px-5 py-3 border-bottom background-white">
+        <div class="row align-items-center">
+            <div class="col-sm-12 col-md-4 col-lg-3 mobile-center">
+                <!-- LOGO -->
+                <div id="logo">
+                    <a href="/" class="href-unstyled">
+                        <b class="hover-color-primary">BOOKS</b>
+                        <div>Online store</div>
+                    </a>
+                </div>
+            </div>
+
+            <div class="col-sm-6 col-md-4 col-lg-6 mobile-center">
+                <!-- HEADER SEARCH -->
+                <form action="/search" method="get" class="input-group">
+                    <div class="form-floating">
+                        <input type="email" class="form-control" id="floatingInput" placeholder="Search" />
+                        <label for="floatingInput">Search</label>
+                    </div>
+                    <button id="search-button" type="button" class="btn btn-primary">
+                        SEARCH
+                    </button>
+                </form>
+            </div>
+
+            <div class="col-sm-6 col-md-4 col-lg-3 header_cart_wrapper">
+                <!-- HEADER CART -->
+                <a class="d-flex align-items-center gap-3 href-unstyled hover-color-primary" href="/cart"><i
+                        class="fa fa-xl fa-shopping-cart"></i>
+                    <div>
+                        <div style="font-size: 18px; font-weight: 700">
+                            Shopping cart:
+                            <span style="font-size: 20; color: #fc5c3c" class="count">0</span>
+                        </div>
+                        <div style="color: #fc5c3c">Checkout</div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- <div data-include="shop-navigation"></div> -->
+    <section class="sticky-top">
+        <nav class="px-5 border-start border-end border-bottom background-white">
+            <div class="border-start border-end py-3 px-3">
+                <ul class="nav col-12 col-md-auto">
+                    <!-- ACTIVE TAB WILL USING primary-color css, other using link-dark  -->
+                    <li>
+                        <a href="#" class="nav-link px-3 primary-color fs-5">HOME</a>
+                    </li>
+                    <li>
+                        <a href="#" class="nav-link px-3 link-dark fs-5">PRODUCTS</a>
+                    </li>
+                    <li><a href="#" class="nav-link px-3 link-dark fs-5">BLOG</a></li>
+                    <li><a href="#" class="nav-link px-3 link-dark fs-5">SALE</a></li>
+                    <li>
+                        <a href="#" class="nav-link px-3 link-dark fs-5">CONTACT US</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </section>
+
+    <!-- only show when in subpage, don't show in home page -->
+    <!-- active page will have primary-color css  -->
+    <div class="mt-3 mx-5 py-3 px-2 bg-white rounded-1 shadow-sm">
+        Home / <span class="primary-color"> Check Out </span>
+    </div>
+    <div class="container mt-5 mb-5" style="max-width: 1000px;">
+        <div class="row g-5">
+            <div class="col-md-5 col-lg-4 order-md-last">
+                <h4 class="d-flex justify-content-between align-items-center mb-3">
+                    <span class="primary-color">Order summary</span>
+                    <span class="badge background-primary rounded-pill">4</span>
+                </h4>
+                <div class="mt-3">
+                    <!-- LIST ITEM SHOW HERE -->
+                    <div class="d-flex align-items-center justify-content-between gap-3 mb-3">
+                        <div class="d-flex align-items-center gap-2">
+                            <div class="position-relative">
+                                <img style="width: 64px; height: 80px; object-fit: contain;"
+                                    src="https://theme133-books.myshopify.com/cdn/shop/products/american_gods_by_neil_gaiman_1_medium.png?v=1422032887"
+                                    alt="">
+                                <div class="position-absolute p-1 bg-secondary rounded-circle text-white d-flex justify-content-center"
+                                    style="width: 28px; height: 28px; top: -10px; right: -10px;">
+                                    2
+                                </div>
+                            </div>
+                            <div>
+                                <div class="fs-6 fw-normal truncate-2-line">
+                                    American Gods by Neil Gaiman dsaf dsaf dsa fasd
+                                </div>
+                                <div class="fw-light" style="font-size: 14px;">
+                                    Original
+                                </div>
+                            </div>
+                        </div>
+                        <div class="fs-6 fw-bold">
+                            $32.900
+                        </div>
+                    </div>
+                </div>
+                <div class="mt-2 row">
+                    <div class="col-6">
+                        Subtotal
+                    </div>
+                    <div class="col-6 text-end fw-bold">
+                        $50.00
+                    </div>
+                    <div class="col-6">
+                        Shipping
+                    </div>
+                    <div class="col-6 text-end fw-bold">
+                        $18.00
+                    </div>
+                    <div class="col-6 fs-5 fw-normal">
+                        Total
+                    </div>
+                    <div class="col-6 text-end fw-bold">
+                        $68.00
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-7 col-lg-8">
+                <div class="d-flex align-items-center justify-content-between gap-3">
+                    <h4 class="mb-3">Contact</h4>
+                    <div class="fs-6 fw-light">Have an account? <a href="#"
+                            class="primary-color cursor-pointer">Login</a></div>
+                </div>
+                <form class="needs-validation" novalidate="">
+                    <div class="row g-3">
+                        <div class="col-12">
+                            <label for="email" class="form-label">Email <span
+                                    class="text-muted">(Optional)</span></label>
+                            <input type="email" class="form-control" id="email" placeholder="you@example.com">
+                            <div class="invalid-feedback">
+                                Please enter a valid email address for shipping updates.
+                            </div>
+                            <div class="d-flex align-items-center gap-2 mt-2">
+                                <input type="checkbox" class="form-check-input" id="send-email">
+                                <div class="fs-6 fw-normal">Email me with news and offers</div>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-6">
+                            <label for="firstName" class="form-label">First name</label>
+                            <input type="text" class="form-control" id="firstName" placeholder="" value="" required="">
+                            <div class="invalid-feedback">
+                                Valid first name is required.
+                            </div>
+                        </div>
+
+                        <div class="col-sm-6">
+                            <label for="lastName" class="form-label">Last name</label>
+                            <input type="text" class="form-control" id="lastName" placeholder="" value="" required="">
+                            <div class="invalid-feedback">
+                                Valid last name is required.
+                            </div>
+                        </div>
+
+                        <div class="col-md-5">
+                            <label for="country" class="form-label">Country</label>
+                            <select class="form-select" id="country" required="">
+                                <option value="">Choose...</option>
+                                <option>United States</option>
+                            </select>
+                            <div class="invalid-feedback">
+                                Please select a valid country.
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <label for="state" class="form-label">State</label>
+                            <select class="form-select" id="state" required="">
+                                <option value="">Choose...</option>
+                                <option>California</option>
+                            </select>
+                            <div class="invalid-feedback">
+                                Please provide a valid state.
+                            </div>
+                        </div>
+
+                        <div class="col-md-3">
+                            <label for="zip" class="form-label">Zip</label>
+                            <input type="text" class="form-control" id="zip" placeholder="" required="">
+                            <div class="invalid-feedback">
+                                Zip code required.
+                            </div>
+                        </div>
+
+                        <div class="col-12">
+                            <label for="address" class="form-label">Address</label>
+                            <input type="text" class="form-control" id="address" placeholder="1234 Main St" required="">
+                            <div class="invalid-feedback">
+                                Please enter your shipping address.
+                            </div>
+                        </div>
+
+                        <div class="col-12">
+                            <label for="address2" class="form-label">Address 2 <span
+                                    class="text-muted">(Optional)</span></label>
+                            <input type="text" class="form-control" id="address2" placeholder="Apartment or suite">
+                        </div>
+
+                        <div class="col-12">
+                            <label for="phone" class="form-label">Phone <span
+                                    class="text-muted">(Optional)</span></label>
+                            <input type="text" class="form-control" id="phone" placeholder="Enter phone">
+                        </div>
+
+                    </div>
+
+                    <div class="form-check mt-3">
+                        <input type="checkbox" class="form-check-input" id="save-info">
+                        <label class="form-check-label" for="save-info">Save this information for next time</label>
+                    </div>
+
+                    <div>
+                        <h4 class="mt-3">Shipping method</h4>
+                        <div class="d-flex align-items-center justify-content-between rounded-2 p-3"
+                            style="background-color: #fff4f3; border: 1px solid #fb5c3c;">
+                            <div class="fs-6 fw-normal">
+                                International Shipping
+                            </div>
+                            <div class="fs-6 fw-semibold">
+                                $18.00
+                            </div>
+                        </div>
+                    </div>
+
+                    <hr class="my-4">
+
+                    <h4 class="mb-3">Payment</h4>
+
+                    <div class="my-3">
+                        <div class="form-check">
+                            <input id="credit" name="paymentMethod" type="radio" class="form-check-input" checked=""
+                                required="">
+                            <label class="form-check-label" for="credit">Credit card</label>
+                        </div>
+                        <div class="form-check">
+                            <input id="debit" name="paymentMethod" type="radio" class="form-check-input" required="">
+                            <label class="form-check-label" for="debit">Debit card</label>
+                        </div>
+                        <div class="form-check">
+                            <input id="paypal" name="paymentMethod" type="radio" class="form-check-input" required="">
+                            <label class="form-check-label" for="paypal">PayPal</label>
+                        </div>
+                    </div>
+
+                    <div class="row gy-3">
+                        <div class="col-md-6">
+                            <label for="cc-name" class="form-label">Name on card</label>
+                            <input type="text" class="form-control" id="cc-name" placeholder="" required="">
+                            <small class="text-muted">Full name as displayed on card</small>
+                            <div class="invalid-feedback">
+                                Name on card is required
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <label for="cc-number" class="form-label">Credit card number</label>
+                            <input type="text" class="form-control" id="cc-number" placeholder="" required="">
+                            <div class="invalid-feedback">
+                                Credit card number is required
+                            </div>
+                        </div>
+
+                        <div class="col-md-3">
+                            <label for="cc-expiration" class="form-label">Expiration</label>
+                            <input type="text" class="form-control" id="cc-expiration" placeholder="" required="">
+                            <div class="invalid-feedback">
+                                Expiration date required
+                            </div>
+                        </div>
+
+                        <div class="col-md-3">
+                            <label for="cc-cvv" class="form-label">CVV</label>
+                            <input type="text" class="form-control" id="cc-cvv" placeholder="" required="">
+                            <div class="invalid-feedback">
+                                Security code required
+                            </div>
+                        </div>
+                    </div>
+
+                    <hr class="my-4">
+
+                    <button class="w-100 btn btn-primary btn-lg" type="submit">Pay now</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Script using  -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+        crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/8d39de38b8.js" crossorigin="anonymous"></script>
+    <script>
+        $('.slider-show-image').slick({
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            arrows: false,
+            fade: true,
+            asNavFor: '.slider-list-image'
+        });
+        $('.slider-list-image').slick({
+            slidesToShow: 3,
+            slidesToScroll: 1,
+            asNavFor: '.slider-show-image',
+            focusOnSelect: true
+        });
+    </script>
+</body>
+
+</html>

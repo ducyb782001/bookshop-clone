@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Book-shop</title>
+    <link rel="stylesheet" href="styles.css" type="text/css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous" />
+    <link rel="stylesheet" type="text/css"
+        href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.5.9/slick.min.css" />
+    <link rel="stylesheet" type="text/css"
+        href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.5.9/slick-theme.min.css" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+</head>
+
+<body class="background-gray">
+    <!-- This container belong to HEADER ADMIN; DONT copy to JSP, JUST INCLUDE -->
+    <header class="d-flex flex-wrap justify-content-center py-3 border-bottom px-5 background-white">
+        <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto">
+            <div class="rounded-circle d-flex justify-content-center align-items-center home-button smooth-transform"
+                style="width: 40px; height: 40px">
+                <i class="fa fa-home"></i>
+            </div>
+        </a>
+
+        <div class="d-flex align-items-center gap-3">
+            <!-- If DO NOT login, show this      -->
+            <button type="button" class="btn btn-outline-none" data-bs-toggle="modal" data-bs-target="#loginModal">
+                <i class="fa-solid fa-lock primary-color me-1"></i>
+                Log in
+            </button>
+            <!-- If login, show this -->
+            <div class="dropdown">
+                <a href="#" class="d-flex align-items-center gap-2 link-dark text-decoration-none dropdown-toggle"
+                    id="dropdownUser2" data-bs-toggle="dropdown" aria-expanded="false">
+                    <i class="fa-solid fa-user me-2 primary-color"></i>
+                    Hello Admin: <strong>Elizabeth</strong>
+                </a>
+                <ul class="dropdown-menu text-small shadow" aria-labelledby="dropdownUser2">
+                    <li><a class="dropdown-item" href="#">Sign out</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="loginModalLabel">Log in</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <h6>User email <span class="text-danger">*</span></h6>
+                        <input type="text" class="form-control mb-3" placeholder="Enter user email"
+                            aria-label="Useremail" />
+                        <h6>Password <span class="text-danger">*</span></h6>
+                        <input type="password" class="form-control mb-2" placeholder="Enter password"
+                            aria-label="Password" />
+                        <button type="button" class="btn btn-primary w-100 mb-2">
+                            Log in
+                        </button>
+                        <div class="mb-3 d-flex justify-content-end">
+                            <a class="text-decoration-none forget-pass-btn btn text-primary" data-bs-toggle="modal"
+                                data-bs-target="#forgetPasswordModal">
+                                Reset password?
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="forgetPasswordModal" tabindex="-1" aria-labelledby="forgetPasswordModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body d-flex flex-column align-items-center gap-3 p-5">
+                        <img src="/assets/reset-pass-img.png" alt="reset-pass-img"
+                            style="max-width: 80px; object-fit: cover" />
+                        <h2>Reset Password</h2>
+                        <input type="text" class="form-control mb-3" placeholder="Enter user email"
+                            aria-label="Useremail" />
+                        <button type="button" class="btn btn-primary w-100 mb-2">
+                            RESET PASSWORD
+                        </button>
+                        <div class="d-flex justify-content-center align-items-center">
+                            <p class="mb-0">Already have an account</p>
+                            <a class="btn btn-outline-none text-decoration-underline" data-bs-toggle="modal"
+                                data-bs-target="#loginModal">
+                                SIGN IN
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Nav bar ADMIN wrapper, DONOT COPY THIS, JUST INCLUDE -->
+    <section class="position-absolute d-flex flex-column flex-shrink-0 p-3 bg-light border-end"
+        style="width: 280px; height: calc(100vh - 83px);">
+        <ul class="nav nav-pills flex-column mb-auto">
+            <li>
+                <a href="#" class="nav-link active">
+                    Products
+                </a>
+            </li>
+            <li>
+                <a href="#" class="nav-link link-dark">
+                    Category
+                </a>
+            </li>
+        </ul>
+    </section>
+
+    <!-- Admin Products wrapper -->
+    <section style="margin-left: 280px; height: calc(100vh - 83px); overflow-y: auto;">
+        <div class="p-4 mb-5">
+            <div class="d-flex justify-content-between align-items-center">
+                <h1 class="fs-2 fw-bold">
+                    ORDER: #ID1234
+                </h1>
+                <div class="d-flex align-items-center gap-2">
+                    <button type="button" class="btn btn-success">
+                        <i class="fa-solid fa-check"></i>
+                        Approve</button>
+                    <button type="button" class="btn btn-danger">
+                        <i class="fa-solid fa-xmark"></i>
+                        Reject</button>
+                </div>
+            </div>
+            <div class="mt-3 container bg-white border rounded-1 p-2">
+                <h4>
+                    Items Buy
+                </h4>
+                <div class="mt-3 card p-3">
+                    <div>
+                        <!-- LIST ITEM SHOW HERE -->
+                        <div class="d-flex align-items-center justify-content-between gap-3 mb-3">
+                            <div class="d-flex align-items-center gap-2">
+                                <div class="position-relative">
+                                    <img style="width: 64px; height: 80px; object-fit: contain;"
+                                        src="https://theme133-books.myshopify.com/cdn/shop/products/american_gods_by_neil_gaiman_1_medium.png?v=1422032887"
+                                        alt="">
+                                    <div class="position-absolute p-1 bg-secondary rounded-circle text-white d-flex justify-content-center"
+                                        style="width: 28px; height: 28px; top: -10px; right: -10px;">
+                                        2
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="fs-6 fw-normal truncate-2-line">
+                                        American Gods by Neil Gaiman dsaf dsaf dsa fasd
+                                    </div>
+                                    <div class="fw-light" style="font-size: 14px;">
+                                        Original
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="fs-6 fw-bold">
+                                $32.900
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-3 row">
+                        <div class="col-6">
+                            Subtotal
+                        </div>
+                        <div class="col-6 text-end fw-bold">
+                            $50.00
+                        </div>
+                        <div class="col-6">
+                            Shipping
+                        </div>
+                        <div class="col-6 text-end fw-bold">
+                            $18.00
+                        </div>
+                        <div class="col-6 fs-5 fw-normal">
+                            Total
+                        </div>
+                        <div class="col-6 text-end fw-bold">
+                            $68.00
+                        </div>
+                    </div>
+                </div>
+                <h4 class="mt-3">
+                    User Buy
+                </h4>
+                <div class="row mt-3">
+                    <div class="col-lg-4 d-grid">
+                        <div class="card mb-4">
+                            <div class="card-body text-center">
+                                <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp"
+                                    alt="avatar" class="rounded-circle img-fluid" style="width: 150px;">
+                                <h5 class="my-3">Duy hai</h5>
+                                <p class="text-muted mb-1">Duyhai@gmail.com</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-8 d-grid">
+                        <div class="card mb-4">
+                            <div class="card-body d-flex flex-column gap-2">
+                                <div class="row">
+                                    <div class="col-sm-3">
+                                        <p class="mb-0">Email</p>
+                                    </div>
+                                    <div class="col-sm-9">
+                                        duy@gmail.com
+                                    </div>
+                                </div>
+                                <div class="row align-items-center">
+                                    <div class="col-sm-3">
+                                        <p class="mb-0">Full Name</p>
+                                    </div>
+                                    <div class="col-sm-9">
+                                        Hai duy
+                                    </div>
+                                </div>
+                                <div class="row align-items-center">
+                                    <div class="col-sm-3">
+                                        <p class="mb-0">Gender</p>
+                                    </div>
+                                    <div class="col-sm-9">
+                                        Male
+                                    </div>
+                                </div>
+                                <div class="row align-items-center">
+                                    <div class="col-sm-3">
+                                        <p class="mb-0">DOB</p>
+                                    </div>
+                                    <div class="col-sm-9">
+                                        22/12/2001
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-3">
+                                        <p class="mb-0">Mobile</p>
+                                    </div>
+                                    <div class="col-sm-9">
+                                        0929292929
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-3">
+                                        <p class="mb-0">Provice</p>
+                                    </div>
+                                    <div class="col-sm-9">
+                                        Ha Noi
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-3">
+                                        <p class="mb-0">State</p>
+                                    </div>
+                                    <div class="col-sm-9">
+                                        Hoang Mai
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-3">
+                                        <p class="mb-0">Address 1</p>
+                                    </div>
+                                    <div class="col-sm-9">
+                                        LALA address
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-3">
+                                        <p class="mb-0">Address 2</p>
+                                    </div>
+                                    <div class="col-sm-9">
+                                        ---
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- This container belong to FOOTER of ADMIN; DONT copy to JSP, JUST INCLUDE -->
+        <footer class="position-absolute bottom-0 start-0 end-0 text-center p-3" style="background-color: #deded540">
+            © 2023 Copyright by Book Shop
+        </footer>
+
+    </section>
+
+    <!-- Script using  -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+        crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/8d39de38b8.js" crossorigin="anonymous"></script>
+</body>
+
+</html>
